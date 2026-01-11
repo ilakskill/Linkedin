@@ -1,3 +1,9 @@
+// @name         
+// @namespace    
+// @version      
+// @description  
+// @author       ilakskill
+
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
@@ -303,7 +309,7 @@ function Get-UniqueTargetPath {
 
     $candidate = $DesiredPath
     $suffix = 1
-    while ($Used.ContainsKey($candidate.ToLower()) -or ((Test-Path -LiteralPath $candidate) -and ($candidate -ine $SourcePath))) {
+    while ($Used.ContainsKey($candidate.ToLower()) -or ((Test-Path -LiteralPath $candidate) -and ($candidate -ne $SourcePath))) {
         $dir = Split-Path -Parent $DesiredPath
         $candidate = Join-Path $dir ("{0}-{1}{2}" -f $BaseName, $suffix, $Extension)
         $suffix++
@@ -436,7 +442,6 @@ $fileCount = @($files).Count
 $currentFile = 0
 Write-Host "Processing $fileCount image(s)..." -ForegroundColor Cyan
 Write-Host ""
-
 foreach ($file in $files) {
     $currentFile++
     $created = $file.CreationTime

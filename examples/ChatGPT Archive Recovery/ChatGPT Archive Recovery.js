@@ -3,7 +3,7 @@
 // @namespace    http://tampermonkey.net/
 // @version      8.3
 // @description  Restore ALL chats OR restore from a custom ID list
-// @author       You
+// @author       ilakskill
 // @match        https://chatgpt.com/*
 // @grant        none
 // @run-at       document-start
